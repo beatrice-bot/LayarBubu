@@ -13,7 +13,7 @@ body {
     color: var(--text-primary);
     margin: 0;
     padding-top: 70px;
-    padding-bottom: 60px;
+    padding-bottom: 70px;
     overflow-x: hidden;
 }
 .background-wallpaper, .background-overlay, .shooting-star {
@@ -35,6 +35,7 @@ body {
 }
 .shooting-star:nth-child(1) { left: 20%; animation-delay: 0s; animation-duration: 5s; }
 .shooting-star:nth-child(2) { left: 50%; animation-delay: 2s; animation-duration: 4s; }
+.shooting-star:nth-child(3) { left: 80%; animation-delay: 4s; animation-duration: 6s; }
 @keyframes fall {
     from { transform: rotate(45deg) translateY(-100px); }
     to { transform: rotate(45deg) translateY(120vh); }
@@ -55,6 +56,15 @@ body {
 #app-content { padding: 1rem; }
 .loader { text-align: center; margin-top: 2rem; }
 .page-title { font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; }
+/* ===== GAYA BARU UNTUK JUDUL BAGIAN ===== */
+.section-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-primary);
+}
 #search-form { margin-bottom: 1.5rem; }
 #search-input {
     width: 100%; box-sizing: border-box;
@@ -78,15 +88,6 @@ body {
     background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
     padding: 1.5rem 0.5rem 0.5rem; font-size: 0.8rem; font-weight: 600;
 }
-.anime-card .quality-badge {
-    position: absolute; top: 8px; right: 8px;
-    background-color: var(--accent-primary); color: white;
-    padding: 4px 8px; border-radius: 6px;
-    font-size: 0.8rem; font-weight: 600;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.5); z-index: 2;
-}
-#search-results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
-
 .detail-header { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
 .detail-header img { width: 120px; border-radius: 8px; }
 .detail-info h2 { font-size: 1.6rem; }
