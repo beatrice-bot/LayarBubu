@@ -7,9 +7,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const templates = {
         loader: () => `<p class="loader">Loading...</p>`,
+        // ===== TEMPLATE INI DIPERBARUI =====
         homePage: (data) => `
-            <div class="page-title">Film Baru Rilis</div>
-            <div class="anime-grid">${(data.results || []).map(templates.movieCard).join('')}</div>`,
+            <div class="section-title">Sedang Trend Hari Ini</div>
+            <div class="anime-grid">
+                ${(data.trendingMovies || []).map(templates.movieCard).join('')}
+            </div>
+            <div class="section-title">Serial Tv Populer</div>
+            <div class="anime-grid">
+                ${(data.popularSeries || []).map(templates.movieCard).join('')}
+            </div>`,
         searchPage: () => `
             <div class="page-title">Pencarian</div>
             <form id="search-form"><input type="search" id="search-input" placeholder="Ketik judul film..."></form>
@@ -29,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>`,
         movieCard: (movie) => `
             <a href="#" class="anime-card" data-link="${movie.link}" data-title="${movie.title}" data-thumbnail="${movie.thumbnail}">
-                ${movie.quality ? `<div class="quality-badge">${movie.quality}</div>` : ''}
                 <img src="${movie.thumbnail}" alt="${movie.title}">
                 <div class="title">${movie.title}</div>
             </a>`,
@@ -68,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     content = templates.contactPage();
                 }
                 app.innerHTML = content;
-            } catch (e) { app.innerHTML = `<p>Gagal memuat. Periksa URL API di app.js atau coba lagi.</p>`; }
+            } catch (e) { app.innerHTML = `<p>Gagal memuat. (${e.message})</p>`; }
         }
     };
 
